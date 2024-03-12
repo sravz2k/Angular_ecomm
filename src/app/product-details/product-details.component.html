@@ -1,0 +1,40 @@
+<div>
+  <app-header></app-header>
+</div>
+<div *ngIf="product" class="product-details">
+  <div class="left-container">
+    <img [src]="product.imgsrc" [alt]="product.desc" class="img" />
+  </div>
+  <div class="right-container">
+    <div class="type">{{ product.type }}</div>
+    <p class="brand">{{ product.brand }}</p>
+    <p class="desc">{{ product.desc }}</p>
+    <p class="colorheading">Color</p>
+    <div class="color-options">
+      <button
+        type="button"
+        class="color-button"
+        style="background-color: #9b9a9e"
+        (click)="selectColor('gray')"
+      >
+        <i *ngIf="selectedColor === 'gray'" class="fas fa-check"></i>
+        <i *ngIf="selectedColor === 'blue'"></i>
+      </button>
+      <button
+        type="button"
+        class="color-button"
+        style="background-color: #001428"
+        (click)="selectColor('blue')"
+      >
+        <i *ngIf="selectedColor === 'blue'" class="fas fa-check"></i>
+        <i *ngIf="selectedColor === 'gray'"></i>
+      </button>
+    </div>
+    <p class="priceheading">Price per unit</p>
+    <div class="cart">
+      <div class="price">${{ product.price }}</div>
+      <div><button>Buy Now</button></div>
+      <div class="cart-icon"><i class="fas fa-thin fa-cart-plus cart"></i></div>
+    </div>
+  </div>
+</div>
